@@ -3,6 +3,7 @@ var real = [];
 var fake = [];
 var points = 0;
 var correct = 0;
+var rn = Math.floor(Math.random()*2);
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	$('#c1').css('font-size', '16px');
@@ -13,9 +14,9 @@ $.getJSON("out.json", function(json) {
 	fake = json;
 	$.getJSON("realOut.json", function(json) {
 		real = json;
-		let rn = Math.floor(Math.random()*2);
 		$('#points').text('Points: '+points+'/'+correct);
 function reload() {
+	rn = Math.floor(Math.random()*2);
 	$('#points').text('Points: '+points+'/'+correct);
 	$('#c1').removeClass();
 	$('#c2').removeClass();
