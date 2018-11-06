@@ -3,8 +3,6 @@
 <head>
 	<meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="apple-touch-icon" href="appImg.jpg">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Hot and Hotter">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -19,42 +17,43 @@ body {
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
-	margin: 32px;
+	margin-top: 32px;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: rgb(239, 238, 244);
 }
 .topright {
     position: absolute;
-    top: 20px;
+    top: 42px;
     right: 16px;
     font-size: 18px;
 }
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   color: #CCCCCC;
-   text-align: center;
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+.c-img {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    text-shadow: 1px 1px rgb(206, 204, 204);
 }
 </style>
 <body>
 <h2><b>Hot</b> and <img src="hotter.gif"></h2>
 <p id="counter" class="topright"></p>
-<div id="c1" class="card" style="width: 18rem;">
-  <img id="img1" class="card-img-top" src="" alt="">
-  <div class="card-body">
-    <p id="p1" class="card-text"></p>
+<div class="c-img" id="c1">
+<img id="img1" class="card-img-top" src="" alt="">
+  <div>
+    <p id="p1" class="bottom-left"></p>
   </div>
 </div>
-<br>
-<div id="c2" class="card" style="width: 18rem;">
-  <img id="img2" class="card-img-top" src="" alt="">
-  <div class="card-body">
-    <p id="p2" class="card-text"></p>
+<div class="c-img" id="c2">
+<img id="img2" class="card-img-top" src="" alt="">
+  <div>
+    <p id="p2" class="bottom-left"></p>
   </div>
-</div>
-<div class="footer">
-  <p>copyright by kavofa</p>
 </div>
 </body>
 </html>
