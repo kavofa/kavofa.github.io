@@ -5,7 +5,7 @@ var truth = {};
 var wrong1 = {};
 var wrong2 = {};
 var t = Math.floor(Math.random()*3);
-
+// debug
 function set(id, data) {
     $(id).html(data);
 }
@@ -25,6 +25,7 @@ function beLight() {
     function reload() {
         beLight();
         t = Math.floor(Math.random()*3);
+        $('#counter').text(cR+'/'+cT)
         truth = Object.keys(log)[Math.floor(Math.random()*Object.keys(log).length)];
         wrong1 = Object.keys(log)[Math.floor(Math.random()*Object.keys(log).length)];
         wrong2 = Object.keys(log)[Math.floor(Math.random()*Object.keys(log).length)];
@@ -48,73 +49,44 @@ function beLight() {
                 set('#btn1', wrong2);
                 break;
         }
-        if (t == 0) {
-            $("#btn1").click(function() {
-                rmAC();
-                $('#btn1').addClass('btn btn-success');
-                $('#btn2').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn2").click(function() {
-                rmAC();
-                $('#btn1').addClass('btn btn-success');
-                $('#btn2').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn3").click(function() {
-                rmAC();
-                $('#btn1').addClass('btn btn-success');
-                $('#btn2').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-        } else if (t == 1) {
-            $("#btn1").click(function() {
-                rmAC();
-                $('#btn2').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn2").click(function() {
-                rmAC();
-                $('#btn2').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn3").click(function() {
-                rmAC();
-                $('#btn2').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn3').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-        } else if (t == 2) {
-            $("#btn1").click(function() {
-                rmAC();
-                $('#btn3').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn2').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn2").click(function() {
-                rmAC();
-                $('#btn3').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn2').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-            $("#btn3").click(function() {
-                rmAC();
-                $('#btn3').addClass('btn btn-success');
-                $('#btn1').addClass('btn btn-danger');
-                $('#btn2').addClass('btn btn-danger');
-                setTimeout(reload, 1500);
-            });
-        }
     }
 reload();
+
+$('#btn1').click(function() {
+    if(t == 0) {
+        $('#btn1').removeClass();
+        $('#btn1').addClass('btn btn-success');
+        cR = cR+1;
+    } else {
+        $('#btn1').removeClass();
+        $('#btn1').addClass('btn btn-wrong');
+    }
+    cT = cT+1;
+    setTimeout(reload, 1500);
+});
+$('#btn2').click(function() {
+    if(t == 1) {
+        $('#btn2').removeClass();
+        $('#btn2').addClass('btn btn-success');
+        cR = cR+1;
+    } else {
+        $('#btn2').removeClass();
+        $('#btn2').addClass('btn btn-wrong');
+    }
+    cT = cT+1;
+    setTimeout(reload, 1500);
+});
+$('#btn3').click(function() {
+    if(t == 2) {
+        $('#btn3').removeClass();
+        $('#btn3').addClass('btn btn-success');
+        cR = cR+1;
+    } else {
+        $('#btn3').removeClass();
+        $('#btn3').addClass('btn btn-wrong');
+    }
+    cT = cT+1;
+    setTimeout(reload, 1500);
+});
+
 });
